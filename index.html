@@ -9,7 +9,46 @@
 
 <body>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+        //request.open('GET', 'https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations');
+
+        /*const url = `https://pokeapi.co/api/v2/pokemon?limit=300`;
+        fetch(url)
+            .then(e => e.json())
+            .then(r => fetch(r.results[35].url))
+            .then(r2 => r2.json())
+            .then(poke => console.log(poke));
+
+        */
+
+        async function mostrar(num) {
+
+            let url = `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations/${num}`;
+            let r = await axios.get(url);
+            console.log(r);
+            //let url2 = r.data.civilizations;
+            //console.log(url2);
+            /*
+            let imgHTML = `<img src ="${img}" alt="pokemon">`;
+            document.body.insertAdjacentHTML('afterbegin', imgHTML);
+            */
+
+        }
+        mostrar('5');
+        /*
+        https://cors-anywhere.herokuapp.com/
+        async function mostrar(num) {
+
+        let url = `https://pokeapi.co/api/v2/pokemon/${num}`;
+        let r = await axios.get(url);
+        let img = r.data.sprites.front_default;
+        let imgHTML = `<img src ="${img}" alt="pokemon">`;
+        document.body.insertAdjacentHTML('afterbegin', imgHTML);
+
+        }
+        mostrar(807);
+        */
     </script>
 </body>
 
