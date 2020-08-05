@@ -22,20 +22,20 @@
 
         */
 
-        async function mostrar(num) {
+        async function mostrar() {
 
-            let url = `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations/${num}`;
+            let url = `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations`;
             let r = await axios.get(url);
             console.log(r);
-            //let url2 = r.data.civilizations;
-            //console.log(url2);
             /*
+            let url2 = r.data.civilizations;
             let imgHTML = `<img src ="${img}" alt="pokemon">`;
             document.body.insertAdjacentHTML('afterbegin', imgHTML);
             */
 
+
         }
-        mostrar('5');
+        mostrar();
         /*
         https://cors-anywhere.herokuapp.com/
         async function mostrar(num) {
