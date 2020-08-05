@@ -8,47 +8,53 @@
 </head>
 
 <body>
+    <h1>Piadas</h1>
+    <h2 id="id"></h2>
+    <h2 id="ask"></h2>
+    <p id="answer"></p>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         //request.open('GET', 'https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations');
 
-        /*const url = `https://pokeapi.co/api/v2/pokemon?limit=300`;
-        fetch(url)
-            .then(e => e.json())
-            .then(r => fetch(r.results[35].url))
-            .then(r2 => r2.json())
-            .then(poke => console.log(poke));
 
-        */
-
-        async function mostrar() {
-
-            let url = `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations`;
-            let r = await axios.get(url);
-            console.log(r);
-            /*
-            let url2 = r.data.civilizations;
-            let imgHTML = `<img src ="${img}" alt="pokemon">`;
-            document.body.insertAdjacentHTML('afterbegin', imgHTML);
-            */
-
-
-        }
-        mostrar();
-        /*
-        https://cors-anywhere.herokuapp.com/
         async function mostrar(num) {
 
-        let url = `https://pokeapi.co/api/v2/pokemon/${num}`;
-        let r = await axios.get(url);
-        let img = r.data.sprites.front_default;
-        let imgHTML = `<img src ="${img}" alt="pokemon">`;
-        document.body.insertAdjacentHTML('afterbegin', imgHTML);
+            let url = `https://cors-anywhere.herokuapp.com/https://age-of-empires-2-api.herokuapp.com/api/v1/civilization/${num}`;
+            let r = await axios.get(url);
+            //console.log(r);
+            let army = r.data.army_type;
+            let na = r.data.name;
+            let exp = r.data.expansion;
+            let dadosHTML = `<h1>Age of empires</h1>
+            <p> Nome da civilização: <strong>${na}</strong></p>
+            <p> Tipo de armas: <strong>${army}</strong></p>
+            <p> Tipo de expansão: <strong>${exp}</strong></p></br></br>`;
+            document.body.insertAdjacentHTML('afterbegin', dadosHTML);
 
         }
-        mostrar(807);
-        */
+        mostrar(Math.floor(Math.random() * 20));
+
+        async function ajax() {
+
+            let url = `https://official-joke-api.appspot.com/jokes/random`;
+            let r = await axios.get(url);
+            //console.log(r);
+            let value = r.data.id;
+            let answer = r.data.punchline;
+            let ask = r.data.setup;
+
+            let hid = document.getElementById('id');
+            hid.textContent = "ID: " + value;
+            let has = document.getElementById('ask');
+            has.textContent = " Question: " + ask;
+            let han = document.getElementById('answer');
+            han.textContent = "R: " + answer;
+
+        }
+        ajax();
+
+        //https://cors-anywhere.herokuapp.com/
     </script>
 </body>
 
